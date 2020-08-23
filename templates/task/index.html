@@ -5,13 +5,14 @@
 </head>
 <body>
 <table border="1px" width="100%" style="border-collapse: collapse;">
+    <a href="../taskmanager/add">add task</a>
     <tr>
         <th>Task id</th>
         <th>task name</th>
         <th>task desc</th>
         <th>operations</th>
     </tr>
-    {% for student in students %}
+    {% for task in tasks %}
         <tr>
             <td align="center">{{ forloop.counter }} </td>
             <td align="center">{{ task.task_desc }} </td>
