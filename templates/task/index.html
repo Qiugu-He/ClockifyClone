@@ -4,8 +4,27 @@
     <title>tasks list</title>
 </head>
 <body>
+
+<form method="post" action="../taskmanager/add/">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <th>Task desc</th>
+            <td><input name="task_desc"></td>
+        </tr>
+        <tr>
+            <th>task number</th>
+            <td><input name="task_no"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+</form>
+
 <table border="1px" width="100%" style="border-collapse: collapse;">
-    <a href="../taskmanager/add">add task</a>
     <tr>
         <th>Task id</th>
         <th>task name</th>
