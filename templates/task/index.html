@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tasks list</title>
+</head>
+<body>
+<table border="1px" width="100%" style="border-collapse: collapse;">
+    <tr>
+        <th>Task id</th>
+        <th>task name</th>
+        <th>task desc</th>
+        <th>operations</th>
+    </tr>
+    {% for student in students %}
+        <tr>
+            <td align="center">{{ forloop.counter }} </td>
+            <td align="center">{{ task.task_desc }} </td>
+            <td align="center">{{ task.task_no }} </td>
+
+            <td align="center">
+                <a href="#">
+                    update
+                </a>
+                <a href="#">
+                    delete
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
