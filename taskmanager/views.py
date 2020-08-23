@@ -44,3 +44,12 @@ def edit(request):
                            [task_no, task_desc, id])
             conn.commit()
         return redirect('../')
+
+# delete a task
+def delete(request):
+    id = request.GET.get("id")
+    conn = MySQLdb.connect(host="localhost", user="root", passwd="123456", db="clockifyclone", charset='utf8')
+    with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
+        cursor.execute("DELETE FROM taskmanager_task WHERE id =%s", [id])
+        conn.commit()
+    return  redirect('../')
