@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update tasks</title>
+    <style>
+        form {
+            margin: 20px auto;
+            width: 500px;
+            border: 1px solid #ccc;
+            padding: 20px
+        }
+    </style>
+</head>
+<body>
+<form method="post" action="../edit/">
+    {% csrf_token %}
+    <input type="hidden" name="id" value="{{ task.id }}"/>
+    <table>
+        <tr>
+            <th>Task desc</th>
+            <td><input name="task_desc" value="{{ task.task_desc }}"></td>
+        </tr>
+        <tr>
+            <th>Task name<th>
+            <td><input name="task_no" value="{{ task.task_no }}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
