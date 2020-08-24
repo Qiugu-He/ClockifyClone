@@ -9,7 +9,6 @@ body{
 }
 
 /* ----------  Table ---------- */
-
 table {
     background: #FFF;
     border-collapse: collapse;
@@ -79,4 +78,3 @@ table a{
 .taskbar .taskbar-container button:hover {
     background: #418FDE;
 }
-
