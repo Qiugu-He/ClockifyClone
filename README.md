@@ -44,8 +44,9 @@ Init project -> install and create sub_app -> connect to MySQL -> build models, 
 * Visit app at url: http://127.0.0.1:8000/taskmanager/
 
 
-
-Made by Qiugu
+<br>
+<br>
+Made by Qiugu 
 
 
 
