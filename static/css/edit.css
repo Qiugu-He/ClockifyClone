@@ -1,0 +1,43 @@
+body{
+    background-color: #DCEEF2;
+    margin-right: auto;
+    margin-left:  auto;
+    max-width: 1240px;
+    padding-right: 10px;
+    padding-left:  10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ----------  Edit form ---------- */
+.container {
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    margin-top: 5%;
+    margin-left:20%;
+    margin-right:20%;
+}
+
+input[type=text], textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]{
+  background-color: grey;
+}
