@@ -1,35 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Update tasks</title>
-    <style>
-        form {
-            margin: 20px auto;
-            width: 500px;
-            border: 1px solid #ccc;
-            padding: 20px
-        }
-    </style>
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/edit.css' %}"/>
 </head>
 <body>
-<form method="post" action="../edit/">
-    {% csrf_token %}
-    <input type="hidden" name="id" value="{{ task.id }}"/>
-    <table>
-        <tr>
-            <th>Task desc</th>
-            <td><input name="task_desc" value="{{ task.task_desc }}"></td>
-        </tr>
-        <tr>
-            <th>Task name<th>
-            <td><input name="task_no" value="{{ task.task_no }}"/></td>
-        </tr>
-        <tr>
-            <td colspan="2">
-                <input type="submit"/>
-            </td>
-        </tr>
-    </table>
-</form>
+
+    <div class="container">
+        <form method="post" action="../edit/">
+            {% csrf_token %}
+            <input type="hidden" name="id" value="{{ task.id }}"/>
+
+            <label>Task name</label>
+            <input type="text" name="task_no" value="{{ task.task_no }}">
+
+            <label>Task Description</label>
+            <textarea name="task_desc" value="{{ task.task_desc }}" placeholder="What you need to update ..."
+                      style="height:200px"></textarea>
+
+            <input type="submit" value="Submit"/>
+        </form>
+    </div>
 </body>
 </html>
