@@ -96,6 +96,7 @@ table a{
     color: #00C4FF;
     text-align: center;
     font-size: 20px;
+    font-weight: bold;
 }
 .chart {
     width: 210px;
