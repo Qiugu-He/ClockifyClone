@@ -19,27 +19,13 @@
         </div>
     </div>
 
-    <table border="1px" width="100%" style="border-collapse: collapse;">
-        <tr>
-            <th>Task id</th>
-            <th>task no</th>
-            <th>task desc</th>
-            <th>operations</th>
-        </tr>
+    <table >
         {% for task in tasks %}
             <tr>
-                <td align="center">{{ forloop.counter }} </td>
-                <td align="center">{{ task.task_no }} </td>
-                <td align="center">{{ task.task_desc }} </td>
-
-                <td align="center">
-                     <a href="../taskmanager/edit/?id={{ task.id }}">
-                        update
-                    </a>
-                    <a href="../taskmanager/delete/?id={{ task.id }}">
-                        delete
-                    </a>
-                </td>
+                <td >{{ task.task_no }} </td>
+                <td style="width:730px">{{ task.task_desc }} </td>
+                <td style="width:30px"><a href="../taskmanager/edit/?id={{ task.id }}"> update </a> </td>
+                <td style="width:30px"><a href="../taskmanager/delete/?id={{ task.id }}"> delete </a></td>
             </tr>
         {% endfor %}
     </table>
