@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>tasks list</title>
+    <title>Tasks Manager</title>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/index.css' %}"/>
 
     <!-- fontawesome icon -->
@@ -34,6 +34,16 @@
             </tr>
         {% endfor %}
     </table>
+
+    <!-- Histogram -->
+    <div class = "chart_container">
+        <p> What you have done so far ...</p>
+        <div class="chart">
+            <div class="result-bg">
+              <div class="result-bar" style="height: {{ count }}%"></div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
