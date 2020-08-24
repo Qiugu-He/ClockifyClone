@@ -5,6 +5,7 @@ The app is built using vanilla JavaScript, HTML/CSS, Django, and MySQL
 ## Features:
 - [x]  Create specific task with description<br>
 - [x]  List tasks user has started <br>
+- [x]  Edit and Delete a specific tasks<br>
 - [x]  A digram tracks how many tasks user has started<br>
 
 ## Screenshot:
