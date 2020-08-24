@@ -5,7 +5,10 @@
     <meta charset="UTF-8">
     <title>tasks list</title>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/index.css' %}"/>
+
+    <!-- fontawesome icon -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 </head>
 
 <body>
@@ -23,12 +26,18 @@
     <table >
         {% for task in tasks %}
             <tr>
-                <td style="font-weight: bold" >{{ task.task_no }} </td>
-                <td style="width:850px; font-style: italic">{{ task.task_desc }} </td>
+                <td style="font-weight: bold; color: #00C4FF;" >{{ task.task_no }} </td>
+                <td style="width:720px; font-style: italic">{{ task.task_desc }} </td>
+                <td style="width:30px"><a href="#">  <i class="far fa-clock"></i> </a> </td>
                 <td style="width:30px"><a href="../taskmanager/edit/?id={{ task.id }}"> <i class="far fa-edit"></i> </a> </td>
                 <td style="width:30px"><a href="../taskmanager/delete/?id={{ task.id }}"> <i class="far fa-trash-alt"></i> </a></td>
             </tr>
         {% endfor %}
     </table>
+
+    <script>
+
+    </script>
+
 </body>
 </html>
