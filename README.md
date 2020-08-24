@@ -12,8 +12,7 @@ The app is built using vanilla JavaScript, HTML/CSS, Django, and MySQL
 
 <img src="https://github.com/Qiugu-He/ClockifyClone/blob/master/static/imgs/screenshot.png" alt="alt text" width="100%" height="100%">
 <img src="https://github.com/Qiugu-He/ClockifyClone/blob/master/static/imgs/screenshot2.png" alt="alt text" width="100%" height="100%">
-<br>
-db screenshot:
+MySQL DB screenshot:
 <img src="https://github.com/Qiugu-He/ClockifyClone/blob/master/static/imgs/screenshot3.png" alt="alt text" width="100%" height="100%">
 
 <br/>
