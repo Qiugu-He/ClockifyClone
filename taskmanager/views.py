@@ -1,15 +1,16 @@
-import MySQLdb
 from django.shortcuts import render, redirect
 from.models import Task
+from datetime import date, timezone
 
 
 # ___________ Listing tasks ____________
 def index(request):
     # get all tasks
     tasks = Task.objects.all()
+
     context = {
         'tasks': tasks,
-        'count': len(tasks),
+        'count': len(tasks)
     }
     return render(request, 'task/index.html', context)
 

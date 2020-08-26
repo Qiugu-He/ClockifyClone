@@ -13,14 +13,15 @@
             {% csrf_token %}
             <input type="hidden" name="id" value="{{ task.id }}"/>
 
-            <label style="color: #00C4FF">Task Name</label>
-            <input type="text" name="task_no" value="{{ task.task_no }}">
+            <label style="color: #00C4FF"> Task Name</label>
+            <input style="font-size:inherit;  color: #727171;  border:none;" type="text" name="task_no" value="{{ task.task_no }}">
 
             <label style="color: #00C4FF">Update Description</label>
-            <textarea name="task_desc" value="{{ task.task_desc }}"
-                      style="height:150px; font-family: Arial, Helvetica, sans-serif; font-style: italic">{{ task.task_desc }}</textarea>
 
-            <input type="submit" value="Done"/>
+            <textarea name="task_desc" value="{{ task.task_desc }}"
+                      style="font-size:inherit; height:100px;color: #727171;border:none;font-family: Arial, Helvetica, sans-serif;">{{ task.task_desc }}</textarea>
+
+            <input type="submit" value="Update"/>
         </form>
     </div>
 </body>

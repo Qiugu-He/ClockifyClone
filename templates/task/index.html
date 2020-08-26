@@ -16,9 +16,9 @@
         <div class = "taskbar-container">
             <form method="post" action="../taskmanager/add/">
                 {% csrf_token %}
-                <input name="task_no" placeholder="Task name"/>
-                <input name="task_desc" placeholder="Add description to the task"/>
-                <button type="submit">start</button>
+                <input style="outline:none;" name="task_no" placeholder="Create a new task ..."/>
+                <input style="outline:none;" name="task_desc" placeholder="Add description to the task"/>
+                <button type="submit">Start</button>
             </form>
         </div>
     </div>
@@ -26,13 +26,13 @@
     <table >
         {% for task in tasks %}
             <tr>
-                <td style="color: #00C4FF;" >{{ task.task_no }} </td>
-                <td style="width:320px; color: #727171;">{{ task.task_desc }} </td>
-                <td style="color: #727171;">{{ task.create_date|date:'M-d H:i:s' }}</td>
-                <td style="color: #727171;">{{ task.update_Date|date:'M-d H:i:s' }}</td>
-                <td style="width:30px"><a href="#">  <i class="far fa-clock"></i> </a> </td>
-                <td style="width:30px"><a href="../taskmanager/edit/?id={{ task.id }}"> <i class="far fa-edit"></i> </a> </td>
-                <td style="width:30px"><a href="../taskmanager/delete/?id={{ task.id }}"> <i class="far fa-trash-alt"></i> </a></td>
+                <td style="width:20%;color: #00C4FF;" >{{ task.task_no }} </td>
+                <td style="width:30%; color: #727171;">{{ task.task_desc }} </td>
+                <td style="width:9%;color: #727171;">{{ task.create_date|date:'H:i:s' }}</td>
+                <td style="width:9%;color: #727171;">{{ task.update_Date|date:'H:i:s' }}</td>
+                <td style="width:15%; color: #727171;"><i class="far fa-clock"></i> {{ task.update_Date|timeuntil:task.create_date}}</td>
+                <td style="width:5%"><a href="../taskmanager/edit/?id={{ task.id }}"> <i class="far fa-edit"></i> </a> </td>
+                <td style="width:5%"><a href="../taskmanager/delete/?id={{ task.id }}"> <i class="far fa-trash-alt"></i> </a></td>
             </tr>
         {% endfor %}
     </table>
@@ -42,7 +42,7 @@
         <p> Tasks you have started so far ...</p>
         <div class="chart">
             <div class="result-bg">
-              <div class="result-bar" style="height: {{ count }}%"></div>
+              <div class="result-bar" style="height: {{ count }}%">{{count}}</div>
             </div>
         </div>
     </div>
