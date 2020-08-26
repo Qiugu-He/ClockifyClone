@@ -16,41 +16,38 @@ def index(request):
 
 # ___________ Add new task ____________
 def add(request):
-    if request.method == 'GET':
-        return render(request, 'task/add.html')
-    else:
-        task_no = request.POST.get('task_no', '')
-        task_desc = request.POST.get('task_desc', '')
+    task_no = request.POST.get('task_no', '')
+    task_desc = request.POST.get('task_desc', '')
 
-        task = Task(task_no=task_no, task_desc=task_desc)
-        task.save()
-        return redirect('../')
+    task = Task(task_no=task_no, task_desc=task_desc)
+    task.save()
+    return redirect('../')
 
 
 # ____________ Update task info ____________
 def edit(request):
     # populate task information
     if request.method == 'GET':
-        taskid = request.GET.get("id")
-        task = Task.objects.get(id=taskid)
+        task_id = request.GET.get("id")
+        task = Task.objects.get(id=task_id)
         return render(request, 'task/edit.html', {'task': task})
 
-    # update information
+    # update task information
     else:
-        id = request.POST.get("id")
+        task_id = request.POST.get("id")
         task_no = request.POST.get('task_no', '')
         task_desc = request.POST.get('task_desc', '')
 
-        task=Task.objects.get(id=id)
+        task = Task.objects.get(id=task_id)
         task.task_no = task_no
         task.task_desc = task_desc
         task.save()
         return redirect('../')
 
 
-# delete a task
+# ____________ Delete a task ____________
 def delete(request):
-    taskid = request.GET.get("id")
-    task=Task.objects.get(id=taskid)
+    task_id = request.GET.get("id")
+    task = Task.objects.get(id=task_id)
     task.delete()
     return redirect('../')
