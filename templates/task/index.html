@@ -17,7 +17,7 @@
             <form method="post" action="../taskmanager/add/">
                 {% csrf_token %}
                 <input style="outline:none;" name="task_no" placeholder="Create a new task ..."/>
-                <input style="outline:none;" name="task_desc" placeholder="Add description to the task"/>
+                <input style="outline:none;" name="task_desc" placeholder="Add description to the task ..."/>
                 <button type="submit">Start</button>
             </form>
         </div>
@@ -28,8 +28,8 @@
             <tr>
                 <td style="width:20%;color: #00C4FF;" >{{ task.task_no }} </td>
                 <td style="width:30%; color: #727171;">{{ task.task_desc }} </td>
-                <td style="width:9%;color: #727171;">{{ task.create_date|date:'H:i:s' }}</td>
-                <td style="width:9%;color: #727171;">{{ task.update_Date|date:'H:i:s' }}</td>
+                <td style="width:19%;color: #727171;">{{ task.create_date|date:'H:i:s' }} ~ {{ task.update_Date|date:'H:i:s' }}</td>
+
                 <td style="width:15%; color: #727171;"><i class="far fa-clock"></i> {{ task.update_Date|timeuntil:task.create_date}}</td>
                 <td style="width:5%"><a href="../taskmanager/edit/?id={{ task.id }}"> <i class="far fa-edit"></i> </a> </td>
                 <td style="width:5%"><a href="../taskmanager/delete/?id={{ task.id }}"> <i class="far fa-trash-alt"></i> </a></td>
