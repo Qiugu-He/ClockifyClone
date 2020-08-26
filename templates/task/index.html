@@ -28,8 +28,8 @@
             <tr>
                 <td style="font-weight: bold; color: #00C4FF;" >{{ task.task_no }} </td>
                 <td style="width:320px; font-style: italic">{{ task.task_desc }} </td>
-                <td>{{ task.create_date }}</td>
-                <td>{{ task.update_Date }}</td>
+                <td>{{ task.create_date|date:'M-d H:i:s' }}</td>
+                <td>{{ task.create_date|date:'M-d H:i:s' }}</td>
                 <td style="width:30px"><a href="#">  <i class="far fa-clock"></i> </a> </td>
                 <td style="width:30px"><a href="../taskmanager/edit/?id={{ task.id }}"> <i class="far fa-edit"></i> </a> </td>
                 <td style="width:30px"><a href="../taskmanager/delete/?id={{ task.id }}"> <i class="far fa-trash-alt"></i> </a></td>
