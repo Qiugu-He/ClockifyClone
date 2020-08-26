@@ -1,35 +1,20 @@
 import MySQLdb
 from django.shortcuts import render, redirect
+from.models import Task
 
-# Create your views here.
-# listing tasks
+
+# ___________ Listing tasks ____________
 def index(request):
-    try:
-        # get total # of tasks
-        conn = MySQLdb.connect(host="localhost", user="root", passwd="123456", db="clockifyclone", charset='utf8')
-        with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
-            cursor.execute("SELECT id,task_no,task_desc FROM taskmanager_task")
-            tasks = cursor.fetchall()
+    # get all tasks
+    tasks = Task.objects.all()
+    context = {
+        'tasks': tasks,
+        'count': len(tasks),
+    }
+    return render(request, 'task/index.html', context)
 
-        # get total counts of entry
-        with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
-            cursor.execute("SELECT * FROM taskmanager_task")
-            records = cursor.fetchall()
-        context = {
-            'tasks': tasks,
-            'count': len(records),
-        }
-        return render(request, 'task/index.html', context)
-        cursor.close()
 
-    except MySQLdb.Error as error:
-        print("Failed to read data from table", error)
-    finally:
-        if (conn):
-            conn.close()
-            print("MySQL connection is closed")
-
-# add new tasks
+# ___________ Add new task ____________
 def add(request):
     if request.method == 'GET':
         return render(request, 'task/add.html')
@@ -37,75 +22,35 @@ def add(request):
         task_no = request.POST.get('task_no', '')
         task_desc = request.POST.get('task_desc', '')
 
-        try:
-            conn = MySQLdb.connect(host="localhost", user="root", passwd="123456", db="clockifyclone", charset='utf8')
-            with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
-                cursor.execute("INSERT INTO taskmanager_task (task_no,task_desc) "
-                               "values (%s,%s)", [task_no, task_desc])
-                conn.commit()
-            return redirect('../')
-            cursor.close()
+        task = Task(task_no=task_no, task_desc=task_desc)
+        task.save()
+        return redirect('../')
 
-        except MySQLdb.Error as error:
-            print("Failed to read data from table", error)
-        finally:
-            if (conn):
-                conn.close()
-                print("MySQL connection is closed")
 
-# update task info
+# ____________ Update task info ____________
 def edit(request):
+    # populate task information
     if request.method == 'GET':
-        id = request.GET.get("id")
-        try:
-            conn = MySQLdb.connect(host="localhost", user="root", passwd="123456", db="clockifyclone", charset='utf8')
-            with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
-                cursor.execute("SELECT id,task_no,task_desc FROM taskmanager_task where id =%s", [id])
-                task = cursor.fetchone()
-            return render(request, 'task/edit.html', {'task': task})
-            cursor.close()
+        taskid = request.GET.get("id")
+        task = Task.objects.get(id=taskid)
+        return render(request, 'task/edit.html', {'task': task})
 
-        except MySQLdb.Error as error:
-            print("Failed to read data from table", error)
-        finally:
-            if (conn):
-                conn.close()
-                print("MySQL connection is closed")
+    # update information
     else:
         id = request.POST.get("id")
         task_no = request.POST.get('task_no', '')
         task_desc = request.POST.get('task_desc', '')
-        try:
-            conn = MySQLdb.connect(host="localhost", user="root", passwd="123456", db="clockifyclone", charset='utf8')
-            with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
-                cursor.execute("UPDATE taskmanager_task set task_no=%s,task_desc=%s where id =%s",
-                               [task_no, task_desc, id])
-                conn.commit()
-            return redirect('../')
-            cursor.close()
 
-        except MySQLdb.Error as error:
-            print("Failed to read data from table", error)
-        finally:
-            if (conn):
-                conn.close()
-                print("MySQL connection is closed")
+        task=Task.objects.get(id=id)
+        task.task_no = task_no
+        task.task_desc = task_desc
+        task.save()
+        return redirect('../')
+
 
 # delete a task
 def delete(request):
-    id = request.GET.get("id")
-    try:
-        conn = MySQLdb.connect(host="localhost", user="root", passwd="123456", db="clockifyclone", charset='utf8')
-        with conn.cursor(cursorclass=MySQLdb.cursors.DictCursor) as cursor:
-            cursor.execute("DELETE FROM taskmanager_task WHERE id =%s", [id])
-            conn.commit()
-        return  redirect('../')
-        cursor.close()
-
-    except MySQLdb.Error as error:
-        print("Failed to read data from table", error)
-
-    finally:
-        if (conn):
-            conn.close()
-            print("MySQL connection is closed")
+    taskid = request.GET.get("id")
+    task=Task.objects.get(id=taskid)
+    task.delete()
+    return redirect('../')
