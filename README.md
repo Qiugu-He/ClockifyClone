@@ -5,8 +5,9 @@ The app is built using vanilla JavaScript, HTML/CSS, Django, and MySQL
 ## Features:
 - [x]  Create specific task with description<br>
 - [x]  List tasks user has started <br>
+- [x]  Time duration between create time and updated time<br>
 - [x]  Edit and Delete a specific task<br>
-- [x]  A digram tracks how many tasks user has started<br>
+- [x]  A diagram tracks how many tasks user has started<br>
 
 ## Screenshot:
 
@@ -47,10 +48,6 @@ Init project -> install and create sub_app -> connect to MySQL -> build models, 
 * Setup run env e.g. db connection
 * Visit app at url: http://127.0.0.1:8000/taskmanager/
 
-
-<br>
-<br>
-Made by Qiugu 
 
 
 

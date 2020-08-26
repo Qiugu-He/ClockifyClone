@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Tasks Manager</title>
+    <title>Task Tracker</title>
     <link rel="stylesheet" type="text/css"  href="{% static 'css/index.css' %}"/>
 
     <!-- fontawesome icon -->
@@ -26,11 +26,11 @@
     <table >
         {% for task in tasks %}
             <tr>
-                <td style="width:20%;color: #00C4FF;" >{{ task.task_no }} </td>
-                <td style="width:30%; color: #727171;">{{ task.task_desc }} </td>
-                <td style="width:19%;color: #727171;">{{ task.create_date|date:'H:i:s' }} ~ {{ task.update_Date|date:'H:i:s' }}</td>
+                <td style="width:20%;color: #00C4FF;" title="Task title">{{ task.task_no }} </td>
+                <td style="width:30%; color: #727171;" title="Task description">{{ task.task_desc }} </td>
+                <td style="width:19%;color: #727171;" title="Creation time ~ Most recent updated time">{{ task.create_date|date:'H:i:s' }} ~ {{ task.update_Date|date:'H:i:s' }}</td>
 
-                <td style="width:15%; color: #727171;"><i class="far fa-clock"></i> {{ task.update_Date|timeuntil:task.create_date}}</td>
+                <td style="width:15%; color: #727171;" title="Duration"><i class="far fa-clock"></i> {{ task.update_Date|timeuntil:task.create_date}}</td>
                 <td style="width:5%"><a href="../taskmanager/edit/?id={{ task.id }}"> <i class="far fa-edit"></i> </a> </td>
                 <td style="width:5%"><a href="../taskmanager/delete/?id={{ task.id }}"> <i class="far fa-trash-alt"></i> </a></td>
             </tr>
