@@ -6,41 +6,8 @@ body{
     padding-right: 10px;
     padding-left:  10px;
     font-family: Arial, Helvetica, sans-serif;
-}
 
-/* ----------  Table ---------- */
-table {
-    background: #FFF;
-    border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    table-layout: fixed;
 }
-
-th {
-    line-height: 32px;
-    font-weight: bold;
-}
-
-th, td {
-    text-align: left;
-    padding: 1em;
-    max-height: 32px;
-    height: 32px;
-    line-height: 32px;
-}
-
-tr:hover {
-    border-bottom: 1px solid rgba(140, 140, 140, 0.17);
-    background-color:#f5f5f5;
-}
-
-table a{
-    color: grey;
-    background-color: transparent;
-    text-decoration: none;
-}
-
 
 /* ----------  Task Creation Bar ---------- */
 .taskbar {
@@ -65,7 +32,7 @@ table a{
 
 .taskbar .taskbar-container button {
     background-color: #00C4FF;
-    float: right;
+    float: left;
     padding: 10px;
     margin-top: 8px;
     margin-right: 16px;
@@ -80,7 +47,37 @@ table a{
     background: #418FDE;
 }
 
+/* ----------  Table ---------- */
+table {
+    background: #FFF;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    table-layout: fixed;
+}
 
+th {
+    line-height: 32px;
+}
+
+th, td {
+    text-align: left;
+    padding: 1em;
+    max-height: 32px;
+    height: 32px;
+    line-height: 32px;
+}
+
+tr:hover {
+    border-bottom: 1px solid rgba(140, 140, 140, 0.17);
+    background-color:#f5f5f5;
+}
+
+table a{
+    color: grey;
+    background-color: transparent;
+    text-decoration: none;
+}
 
 /*----------    Histogram  ----------*/
 .chart_container{

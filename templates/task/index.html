@@ -26,10 +26,10 @@
     <table >
         {% for task in tasks %}
             <tr>
-                <td style="font-weight: bold; color: #00C4FF;" >{{ task.task_no }} </td>
-                <td style="width:320px; font-style: italic">{{ task.task_desc }} </td>
-                <td>{{ task.create_date|date:'M-d H:i:s' }}</td>
-                <td>{{ task.create_date|date:'M-d H:i:s' }}</td>
+                <td style="color: #00C4FF;" >{{ task.task_no }} </td>
+                <td style="width:320px; color: #727171;">{{ task.task_desc }} </td>
+                <td style="color: #727171;">{{ task.create_date|date:'M-d H:i:s' }}</td>
+                <td style="color: #727171;">{{ task.update_Date|date:'M-d H:i:s' }}</td>
                 <td style="width:30px"><a href="#">  <i class="far fa-clock"></i> </a> </td>
                 <td style="width:30px"><a href="../taskmanager/edit/?id={{ task.id }}"> <i class="far fa-edit"></i> </a> </td>
                 <td style="width:30px"><a href="../taskmanager/delete/?id={{ task.id }}"> <i class="far fa-trash-alt"></i> </a></td>
